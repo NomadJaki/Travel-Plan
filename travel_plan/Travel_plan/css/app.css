@@ -1,0 +1,314 @@
+/* Travel plan — shared presentation */
+:root {
+    --bg: #0f1419;
+    --bg-elevated: #1a2332;
+    --text: #e8eaed;
+    --text-muted: #9aa0a6;
+    --accent: #4dabf7;
+    --accent-dim: #339af0;
+    --card-border: rgba(255, 255, 255, 0.08);
+    --radius: 16px;
+    --font: "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font);
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+    min-height: 100vh;
+}
+
+a {
+    color: var(--accent);
+}
+
+a:hover {
+    color: #74c0fc;
+}
+
+/* ——— Homepage ——— */
+.home {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1.25rem;
+    background:
+        radial-gradient(ellipse 80% 50% at 50% -20%, rgba(77, 171, 247, 0.22), transparent),
+        var(--bg);
+}
+
+.home h1 {
+    margin: 0;
+    font-size: clamp(1.75rem, 5vw, 2.5rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.home .tagline {
+    margin: 0.5rem 0 2.5rem;
+    color: var(--text-muted);
+    font-size: 1.05rem;
+}
+
+.choices {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.25rem;
+    width: 100%;
+    max-width: 640px;
+}
+
+.choice-card {
+    display: block;
+    padding: 1.75rem 1.5rem;
+    border-radius: var(--radius);
+    background: var(--bg-elevated);
+    border: 1px solid var(--card-border);
+    text-decoration: none;
+    color: var(--text);
+    text-align: left;
+    transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+}
+
+.choice-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(77, 171, 247, 0.45);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+    color: var(--text);
+}
+
+.choice-card .label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 0.35rem;
+}
+
+.choice-card .title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem;
+}
+
+.choice-card .blurb {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.45;
+}
+
+/* ——— Detail pages shell ——— */
+.detail-shell {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 1.25rem 1rem 2.5rem;
+}
+
+.detail-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.9rem;
+    text-decoration: none;
+    color: var(--text-muted);
+}
+
+.back-link:hover {
+    color: var(--accent);
+}
+
+.detail-shell h1 {
+    margin: 0;
+    font-size: 1.65rem;
+    font-weight: 700;
+    flex: 1;
+    text-align: center;
+    min-width: 200px;
+}
+
+.detail-lead {
+    text-align: center;
+    color: var(--text-muted);
+    margin: 0 0 1.25rem;
+    font-size: 0.95rem;
+}
+
+/* ——— June 1 map ——— */
+#itinerary-map {
+    height: min(420px, 55vh);
+    width: 100%;
+    border-radius: var(--radius);
+    border: 1px solid var(--card-border);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    margin: 0 0 1.25rem;
+    z-index: 1;
+}
+
+.legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin-bottom: 0.65rem;
+}
+
+.legend span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.swatch {
+    width: 28px;
+    height: 4px;
+    border-radius: 2px;
+    display: inline-block;
+}
+
+.swatch.transit {
+    background: repeating-linear-gradient(90deg, #fd7e14, #fd7e14 6px, transparent 6px, transparent 10px);
+    height: 3px;
+}
+
+.swatch.walk {
+    background: #51cf66;
+}
+
+.steps-panel {
+    background: var(--bg-elevated);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius);
+    padding: 1.15rem 1.35rem;
+    text-align: left;
+}
+
+.steps-panel h2 {
+    margin: 0 0 0.65rem;
+    font-size: 1.05rem;
+}
+
+.steps-panel ol {
+    margin: 0;
+    padding-left: 1.2rem;
+}
+
+.steps-panel li {
+    margin: 0.8rem 0;
+}
+
+.steps-panel .mode {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+.steps-panel a {
+    word-break: break-all;
+}
+
+.note {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    margin-top: 0.9rem;
+}
+
+/* Leaflet dark attribution readability */
+.leaflet-container {
+    background: #1a2332;
+    font-family: var(--font);
+}
+
+.leaflet-control-attribution {
+    background: rgba(26, 35, 50, 0.85) !important;
+    color: var(--text-muted) !important;
+    font-size: 10px !important;
+}
+
+.leaflet-control-attribution a {
+    color: var(--accent) !important;
+}
+
+/* ——— June 6 timeline ——— */
+.timeline {
+    text-align: left;
+    margin-top: 0.5rem;
+}
+
+.timeline-item {
+    position: relative;
+    padding-left: 1.75rem;
+    padding-bottom: 1.5rem;
+    border-left: 2px solid var(--card-border);
+    margin-left: 0.6rem;
+}
+
+.timeline-item:last-child {
+    border-left-color: transparent;
+    padding-bottom: 0;
+}
+
+.timeline-item::before {
+    content: "";
+    position: absolute;
+    left: -7px;
+    top: 0.35rem;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 0 3px var(--bg);
+}
+
+.timeline-item h2 {
+    margin: 0 0 0.35rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.timeline-item .links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    margin-top: 0.5rem;
+}
+
+.timeline-item .links a {
+    font-size: 0.9rem;
+}
+
+.timeline-start {
+    background: var(--bg-elevated);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius);
+    padding: 1rem 1.25rem;
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.timeline-start strong {
+    color: var(--accent);
+}
