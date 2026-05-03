@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>June 1 — Travel Plan</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+    <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+    <div class="detail-shell">
+        <div class="detail-top">
+            <a class="back-link" href="Homepage.html">← Home</a>
+            <h1>June 1</h1>
+            <span style="width:4rem" aria-hidden="true"></span>
+        </div>
+        <p class="detail-lead">King’s Cross → Big Ben (transit) → London Eye → Tao Tao Ju → back to King’s Cross</p>
+
+        <div class="legend" aria-hidden="true">
+            <span><i class="swatch transit"></i> Public transport</span>
+            <span><i class="swatch walk"></i> Walking (OSRM)</span>
+        </div>
+        <div id="itinerary-map" role="img" aria-label="Map of June 1 itinerary"></div>
+
+        <section class="steps-panel">
+            <h2>Stops and links</h2>
+            <ol>
+                <li>
+                    <div class="mode">1 · King’s Cross → Big Ben</div>
+                    <strong>Public transport</strong> to Westminster / Big Ben.
+                    <div><a href="https://maps.app.goo.gl/epA1ZVPXzjKzkx8r9" target="_blank" rel="noopener">Google Maps — transit route</a></div>
+                </li>
+                <li>
+                    <div class="mode">2 · Walk</div>
+                    <strong>Big Ben → London Eye</strong>
+                    <div><a href="https://maps.app.goo.gl/Z68xDLXXRrMjPNBz9" target="_blank" rel="noopener">Walking directions</a></div>
+                </li>
+                <li>
+                    <div class="mode">3 · Walk</div>
+                    <strong>London Eye → Tao Tao Ju (Chinatown)</strong>
+                    <div><a href="https://maps.app.goo.gl/U8W2yMHDkSVaQVzr7" target="_blank" rel="noopener">Walking directions</a></div>
+                </li>
+                <li>
+                    <div class="mode">4 · Return</div>
+                    <strong>Chinatown → King’s Cross</strong> (starting point). Plan the return in Google Maps from Tao Tao Ju to King’s Cross Station for current walking or transit options.
+                </li>
+            </ol>
+            <p class="note">Orange dashed line = first leg by public transport (approximate). Green lines = walking from OpenStreetMap routing. For turn-by-turn directions, use the Google Maps links above.</p>
+        </section>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="" defer></script>
+    <script src="js/june1-map.js" defer></script>
+</body>
+</html>
